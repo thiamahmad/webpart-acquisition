@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="card no-radius">
+        <div class="card-header marge">
+            <h4><i class="fa fa-file text-dark fa-lg"></i> Acquisition documents</h4>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-info" id="loading">Loading...</div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label class="">Type d'operation</label>
+                    <select class="form-control">
+                        <option value="">Retrait</option>
+                        <option value="">Versement</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="">Code agence</label>
+                    <input type="text" class="form-control" id="codeAgence" placeholder="BI900" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="">Code agence</label>
+                    <input type="text" class="form-control" id="codeAgence" placeholder="BI900" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label>Date</label>
+                    <input type="date" class="form-control font-ms" id="date" />
+                </div>
+                <div class="form-group col-sm-6">
+                    <label>Numero operation</label>
+                    <input type="text" class="form-control" id="numeroOperation" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <label>Type</label>
+                    <select class="form-control" name="type">
+                        <option value="C">Cheque</option>
+                        <option value="V">Versement</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label>Nom titulaire</label>
+                    <input type="text" class="form-control" id="porteurTitulaire" />
+                </div>
+                <div class="form-group col-sm-6">
+                    <label>Titulaire</label>
+                    <input type="text" class="form-control" id="titulaire" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <label>Document 1</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <label>Document 2</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <label>Document 3</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer text-right font-ms">
+            <button class="btn btn-success font-ms" type="button" id="btnSave">Enregistrer</button>
+            <button class="btn btn-danger font-ms" type="button" id="btnReset">Reset</button>
+        </div>
+    </div>
+</div>

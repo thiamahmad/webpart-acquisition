@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "ged-webpart-client-side-solution",
+    "id": "db177e1c-a6ad-4683-a8d7-36dcb9ee851e",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/ged-webpart.sppkg"
+  }
+}

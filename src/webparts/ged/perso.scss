@@ -1,0 +1,31 @@
+@import "~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss";
+
+.container {
+    @include ms-font-l;
+}
+
+.form-control {
+    @include ms-font-l;
+    border-radius: 0px !important;
+}
+
+.btn{
+    border-radius: 0px !important;
+}
+
+.card {
+    border-radius: 0px !important;
+}
+
+.card-header {
+    margin: 3px !important;
+    @include ms-font-l;
+}
+
+.card-body {
+    margin: 3px !important;
+}
+
+.card-footer {
+    margin: 3px !important;
+}
