@@ -27,111 +27,131 @@ export default class GedWebPart extends BaseClientSideWebPart<IGedWebPartProps> 
   public render(): void {
     this.domElement.innerHTML = `
     <div class="container">
-    <div class="card no-radius">
-        <div class="card-header marge">
-            <h4><i class="fa fa-file text-dark fa-lg"></i> Acquisition documents</h4>
+    <div class="card no-radius ">
+        <div class="card-header card-success marge">
+            <h4>ACQUISITION</h4>
         </div>
         <div class="card-body">
+
             <div class="alert alert-info" id="loading">Loading...</div>
             
-            <!--div class="form-row">
-                <div class="form-group col-md-12">
-                    <label class="">Type d'operation</label>
-                    <select class="form-control">
-                        <option value="">Retrait</option>
-                        <option value="">Versement</option>
-                    </select>
-                </div>
-            </div-->
-
             <div class="form-row">
-                <div class="form-group col-md-6">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="type-operation" id="radioRetrait" value="retrait">
-                  <label class="form-check-label">Retrait</label>
-                </div>
-                </div>
-                <div class="form-group col-md-6">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="type-operation" id="radioVersement" value="versement">
-                  <label class="form-check-label">Versement</label>
-                </div>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label class="">Code agence</label>
                     <input type="text" class="form-control" id="codeAgence" placeholder="BI900" />
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label class="">Code guichet</label>
                     <input type="text" class="form-control" id="codeGuichet" placeholder="BI900" />
                 </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-4">
                     <label>Date</label>
                     <input type="date" class="form-control font-ms" id="date" />
                 </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-10 offset-3">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="type-operation" id="radioRetrait" value="retrait">
+                    <label class="form-check-label">Chèque au porteur</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="type-operation" id="radioVersement" value="versement">
+                    <label class="form-check-label">Titulaire du compte</label>
+                  </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-12 text-center">
+                <label>Particularite du compte ?</label>
+                </div>
+                <div class="form-group col-md-12 text-center">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="particularite" id="particulariteOui" value="Oui">
+                    <label class="form-check-label">Oui</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="particularite" id="particulariteNon" value="Non">
+                    <label class="form-check-label">Non</label>
+                  </div>
+                </div>
+            </div>
+
+            <div class="form-row" id="blocFA">
+                <div class="form-group col-sm-12">
+                    <label>Fiche d'accrochage</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="ficheAccrochage" />
+                        <label class="custom-file-label" for="ficheAccrochage">Choisir un fichier...</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="blocDocument">
+                <div class="form-row">
+                  <div class="form-group col-sm-12">
+                      <label>Fiche de vigilance</label>
+                      <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="ficheVigilance" required>
+                          <label class="custom-file-label" for="ficheVigilance">Choisir un fichier...</label>
+                      </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-sm-12">
+                      <label>Pièce d'identité</label>
+                      <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="pieceIdentite" required>
+                          <label class="custom-file-label" for="pieceIdentite">Choisir un fichier...</label>
+                      </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-sm-12">
+                      <label>Chèque</label>
+                      <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="cheque" required>
+                          <label class="custom-file-label" for="cheque">Choisir un fichier...</label>
+                      </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label>Numero operation</label>
-                    <input type="text" class="form-control" id="numeroOperation" />
+                    <label>Numero opération</label>
+                    <input type="text" class="form-control" id="numeroOperation" value="Numero operation" readonly />
+                </div>
+                <div class="form-group col-sm-6">
+                    <label>Numéro client</label>
+                    <input type="text" class="form-control" id="numeroClient" value="Numero client" readonly />
                 </div>
             </div>
 
-
-            <div class="form-row" id="blocRetrait">
-                <div class="form-group col-sm-12">
-                    <label>Cheque ?</label>
-                    <select class="form-control" name="versement">
-                        <option value="AP">Au porteur</option>
-                        <option value="TI">Titulaire</option>
-                    </select>
-                 </div>
-            </div>
-
-            <div class="form-row" id="blocVersement">
-                <div class="form-group col-sm-12">
-                    <label>Versement ?</label>
-                    <select class="form-control" name="versement">
-                        <option value="NT">Non titulaire</option>
-                        <option value="TI">Titulaire</option>
-                    </select>
-                 </div>
-            </div>
-
             <div class="form-row">
-                <div class="form-group col-sm-12">
-                    <label>Document 1</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                        <div class="invalid-feedback">Example invalid custom file feedback</div>
-                    </div>
+                <div class="form-group col-md-6">
+                    <label class="">Montant</label>
+                    <input type="numeric" min="1000000" class="form-control" id="montant" value="Montant" readonly />
+                </div>
+                <div class="form-group col-sm-6">
+                    <label>Référence du chèque</label>
+                    <input type="numeric" class="form-control" id="referenceCheque" value="Reference" readonly />
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-sm-12">
-                    <label>Document 2</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                        <div class="invalid-feedback">Example invalid custom file feedback</div>
-                    </div>
+                    <label>Bénéficiaire</label>
+                    <input type="text" class="form-control" id="beneficiaire" value="Beneficiaire" readonly />
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-sm-12">
-                    <label>Document 3</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                        <div class="invalid-feedback">Example invalid custom file feedback</div>
-                    </div>
+                    <label>Motif de la demande</label>
+                    <textarea class="form-control" id="motif" readonly >Motif...</textarea>
                 </div>
             </div>
 
@@ -139,36 +159,29 @@ export default class GedWebPart extends BaseClientSideWebPart<IGedWebPartProps> 
 
         <div class="card-footer text-right">
             <button class="btn btn-success" type="button" id="btnSave">Enregistrer</button>
-            <button class="btn btn-danger" type="button" id="btnReset">Reset</button>
+            <button class="btn btn-outline-secondary" type="button" id="btnReset">Reset</button>
         </div>
     </div>
 </div>`;
 
     $(document).ready(() => {
-      $("#blocRetrait").hide();
-      $("#blocVersement").hide();
+      $("#blocFA").hide();
 
       $("#loading").hide();
 
-      $("#btnSave").click(() => {
-        let select = $("select[name='type']").val();
-        $("#loading").text(select).show();
-      });
-
-      $("input[type='radio'][name='type-operation']").change(() => {
-        let type = $("input[type='radio'][name='type-operation']:checked").val();
-        if (type === 'versement') {
-          $("#blocRetrait").hide();
-          $("#blocVersement").show();
+      $("input[type='radio'][name='particularite']").change(() => {
+        let part = $("input[type='radio'][name='particularite']:checked").val();
+        if (part === 'Oui') {
+          $("#blocFA").show();
         } else {
-          $("#blocRetrait").show();
-          $("#blocVersement").hide();
+          $("#blocFA").hide();
         }
       });
 
       $("#btnReset").click(() => {
         $("#loading").empty().hide();
       });
+     
     });
   }
 

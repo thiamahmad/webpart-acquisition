@@ -19,7 +19,9 @@
 
 .card-header {
     margin: 3px !important;
-    @include ms-font-l;
+    background-color: #00915a;
+    border-radius: 0px !important;
+    color: #fff;
 }
 
 .card-body {
@@ -28,4 +30,8 @@
 
 .card-footer {
     margin: 3px !important;
+}
+
+.custom-file-input ~ .custom-file-label::after {
+    content: "Parcourir";
 }
