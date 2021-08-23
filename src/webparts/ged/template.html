@@ -1,100 +1,177 @@
 <div class="container">
-    <div class="card no-radius">
-        <div class="card-header marge">
-            <h4><i class="fa fa-file text-dark fa-lg"></i> Acquisition documents</h4>
+    <div class="card no-radius ">
+        <div class="card-header card-success marge">
+            <h4>ACQUISITION</h4>
         </div>
         <div class="card-body">
+
             <div class="alert alert-info" id="loading">Loading...</div>
+
             <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label class="">Type d'operation</label>
-                    <select class="form-control">
-                        <option value="">Retrait</option>
-                        <option value="">Versement</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label class="">Code agence</label>
-                    <input type="text" class="form-control" id="codeAgence" placeholder="BI900" />
-                </div>
-                <div class="form-group col-md-6">
-                    <label class="">Code agence</label>
-                    <input type="text" class="form-control" id="codeAgence" placeholder="BI900" />
+                <div class="form-group col-md-10 offset-4">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type-operation" id="radioRetrait"
+                            value="retrait">
+                        <label class="form-check-label">Retrait</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type-operation" id="radioVersement"
+                            value="versement">
+                        <label class="form-check-label">Versement</label>
+                    </div>
                 </div>
             </div>
 
             <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label class="">Code agence</label>
+                    <input type="text" class="form-control" id="codeAgence" placeholder="BI900" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="">Code guichet</label>
+                    <input type="text" class="form-control" id="codeGuichet" placeholder="BI900" />
+                </div>
                 <div class="form-group col-sm-6">
                     <label>Date</label>
                     <input type="date" class="form-control font-ms" id="date" />
                 </div>
+            </div>
+
+            <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label>Numero operation</label>
-                    <input type="text" class="form-control" id="numeroOperation" />
+                    <label>Numero opération</label>
+                    <input type="text" class="form-control" id="numeroOperation" value="" />
+                </div>
+                <div class="form-group col-sm-6">
+                    <label>Numéro client</label>
+                    <input type="text" class="form-control" id="numeroClient" value="" />
                 </div>
             </div>
 
             <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="">Montant</label>
+                    <input type="number" min="100000" class="form-control" id="montant" name="montant" />
+                </div>
+                <div class="form-group col-sm-6">
+                    <label>Référence du chèque</label>
+                    <input type="numeric" class="form-control" id="referenceCheque" value="" />
+                </div>
+            </div>
+
+            <div class="form-row" id="blocBenef">
                 <div class="form-group col-sm-12">
-                    <label>Type</label>
-                    <select class="form-control" name="type">
-                        <option value="C">Cheque</option>
-                        <option value="V">Versement</option>
-                    </select>
+                    <label>Bénéficiaire</label>
+                    <input type="text" class="form-control" id="beneficiaire" value="" />
                 </div>
             </div>
 
-            <div class="form-row">
-                <div class="form-group col-sm-6">
-                    <label>Nom titulaire</label>
-                    <input type="text" class="form-control" id="porteurTitulaire" />
-                </div>
-                <div class="form-group col-sm-6">
-                    <label>Titulaire</label>
-                    <input type="text" class="form-control" id="titulaire" />
-                </div>
-            </div>
-
-            <div class="form-row">
+            <div class="form-row" id="blocRemet">
                 <div class="form-group col-sm-12">
-                    <label>Document 1</label>
+                    <label>Remettant</label>
+                    <input type="text" class="form-control" id="remettant" value="" />
+                </div>
+            </div>
+
+            <div class="form-row" id="blocFA">
+                <div class="form-group col-sm-12">
+                    <label>Fiche d'accrochage</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        <input type="file" class="custom-file-input" id="ficheAccrochage" />
+                        <label class="custom-file-label" for="ficheAccrochage">Choisir un fichier...</label>
                     </div>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-sm-12">
-                    <label>Document 2</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                        <div class="invalid-feedback">Example invalid custom file feedback</div>
-                    </div>
+                    <label>Motif de la demande</label>
+                    <textarea class="form-control" id="motif"></textarea>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-sm-12">
-                    <label>Document 3</label>
+                    <label>Envoyé à</label>
+                    <input type="text" class="form-control" id="mailReception" value="" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-10 offset-3">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type-client" id="radioPorteur"
+                            value="porteur">
+                        <label class="form-check-label">Chèque au porteur</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type-client" id="radioTitulaire"
+                            value="titulaire">
+                        <label class="form-check-label">Titulaire du compte</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 text-right">
+                    <label>Particularite du compte ?</label>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="particularite" id="particulariteOui"
+                            value="Oui">
+                        <label class="form-check-label">Oui</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="particularite" id="particulariteNon"
+                            value="Non">
+                        <label class="form-check-label">Non</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row" id="blocFA">
+                <div class="form-group col-sm-12">
+                    <label>Fiche d'accrochage</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        <input type="file" class="custom-file-input" id="ficheAccrochage" />
+                        <label class="custom-file-label" for="ficheAccrochage">Choisir un fichier...</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row" id="blocFR">
+                <div class="form-group col-sm-6 offset-4">
+                    <a class="btn btn-outline-danger" id="btnFillRegistre">Remplir la fiche de registre</a>
+                </div>
+            </div>
+
+            <div class="form-row" id="blocCI">
+                <div class="form-group col-sm-12">
+                    <label>Pièce d'identité</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="pieceIdentite" required>
+                        <label class="custom-file-label" for="pieceIdentite">Choisir un fichier...</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row" id="blocCQ">
+                <div class="form-group col-sm-12">
+                    <label>Chèque</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="cheque" required>
+                        <label class="custom-file-label" for="cheque">Choisir un fichier...</label>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <div class="card-footer text-right font-ms">
-            <button class="btn btn-success font-ms" type="button" id="btnSave">Enregistrer</button>
-            <button class="btn btn-danger font-ms" type="button" id="btnReset">Reset</button>
+        <div class="card-footer text-right">
+            <button class="btn btn-danger" type="button" id="btnAsk4Val">Demande de validation</button>
+            <button class="btn btn-success" type="button" id="btnValidate">Validation</button>
+            <button class="btn btn-outline-secondary" type="button" id="btnReset">Reset</button>
         </div>
     </div>
 </div>
