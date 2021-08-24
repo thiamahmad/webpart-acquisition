@@ -25,10 +25,11 @@ export interface IGedWebPartProps {
 export default class GedWebPart extends BaseClientSideWebPart<IGedWebPartProps> {
 
   public render(): void {
-    this.domElement.innerHTML = `<div class="container">
+    this.domElement.innerHTML = `
+    <div class="container">
     <div class="card no-radius ">
         <div class="card-header card-success marge">
-            <h4>ACQUISITION</h4>
+            <h4>Validation des opérations</h4>
         </div>
         <div class="card-body">
 
